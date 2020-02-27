@@ -1,0 +1,23 @@
+{
+  "name": "hw12-bamazon",
+  "version": "1.0.0",
+  "description": "A command line program that allows the user to purchase products",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jacobs1986/HW12-bamazon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jacobs1986/HW12-bamazon/issues"
+  },
+  "homepage": "https://github.com/Jacobs1986/HW12-bamazon#readme",
+  "dependencies": {
+    "inquirer": "^7.0.4",
+    "mysql": "^2.18.1"
+  }
+}
