@@ -11,5 +11,14 @@ const connection = mysql.createConnection({
 connection.connect(function(err) {
     if (err) throw err;
     console.log(`connected as id ${connection.threadId}`)
+    showTable();
     connection.end()
 });
+
+// functions
+showTable = () => {
+    connection.query("SELECT * FROM products", (err, res) => {
+        if (err) throw res;
+        console.table(res);
+    });
+};
