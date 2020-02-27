@@ -57,7 +57,8 @@ itemSearch = (productID, requestedQuantity) => {
         let currentStock = res[0].stock_quantity;
         let price = res[0].price;
         if (requestedQuantity > currentStock) {
-            console.log("There are not enough items to complete this order.")
+            console.log("There are not enough items to complete this order.");
+            userSelect();
         } else {
             console.log("We will fill this order.")
             updateProduct(productName, productID, requestedQuantity, currentStock, price)
@@ -82,7 +83,17 @@ updateProduct = (productName, productID, requestedQuantity, currentStock, price)
         function (err, res) {
             if (err) throw err;
             console.log(`We have recieved your order for ${productName}.\nYour total comes to: $${totalPrice}`)
-            // showTable();
-            connection.end()
+            inquirer.prompt({
+                type: "confirm",
+                message: "Would you like to make another purchase?",
+                name: "another"
+            }).then(answer => {
+                if (answer.another) {
+                    showTable()
+                } else {
+                    console.log("Come back soon!")
+                    connection.end();
+                }
+            })
         });
 };
